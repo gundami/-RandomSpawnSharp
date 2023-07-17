@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "randomspawnsharp",
+  "version": "${version}",
+
+  "name": "RandomSpawnSharp",
+  "description": "Random spawn point mod for fabric",
+  "authors": [
+    "gundami"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/randomspawnsharp/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.gundami.randomspawnsharp.RandomSpawnSharp"
+    ]
+  },
+  "mixins": [
+    "randomspawnsharp.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.10",
+    "fabric-api": "*",
+    "minecraft": "~1.19",
+    "java": ">=17",
+    "cloth-config": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}

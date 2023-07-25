@@ -20,8 +20,8 @@ public class AsyncTask {
     public void randomSpawn(RandomPoint randomPoint, ServerPlayerEntity serverPlayerEntity){
         executor.submit(()->{
             BlockPos blockPos = null;
-            blockPos = randomPoint.getRandomPoint(serverPlayerEntity.getWorld());
-            serverPlayerEntity.teleport(serverPlayerEntity.getWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
+            blockPos = randomPoint.getRandomPoint(serverPlayerEntity.getServerWorld());
+            serverPlayerEntity.teleport(serverPlayerEntity.getServerWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
             serverPlayerEntity.setSpawnPoint(serverPlayerEntity.getWorld().getRegistryKey(),blockPos,0,true,false);
         });
 

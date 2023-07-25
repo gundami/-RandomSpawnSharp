@@ -55,8 +55,8 @@ public class RandomSpawnSharp implements ModInitializer {
 						//new AsyncTask().randomSpawn(new RandomPoint(config.xMin, config.xMax, config.zMin, config.zMax),context.getSource().getPlayer());
 						ServerPlayerEntity serverPlayerEntity = context.getSource().getPlayer();
 						BlockPos blockPos = null;
-						blockPos = new RandomPoint(config.xMin, config.xMax, config.zMin, config.zMax).getRandomPoint(serverPlayerEntity.getWorld());
-						serverPlayerEntity.teleport(serverPlayerEntity.getWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
+						blockPos = new RandomPoint(config.xMin, config.xMax, config.zMin, config.zMax).getRandomPoint(serverPlayerEntity.getServerWorld());
+						serverPlayerEntity.teleport(serverPlayerEntity.getServerWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
 						serverPlayerEntity.setSpawnPoint(serverPlayerEntity.getWorld().getRegistryKey(),blockPos,0,true,false);
 
 					}
@@ -69,8 +69,8 @@ public class RandomSpawnSharp implements ModInitializer {
 			if (!serverState.players.contains(player.getUuid()) && firstJoinRandomSpawn){
 				LOGGER.info("Start finding new spawn point");
 				BlockPos blockPos = null;
-				blockPos = new RandomPoint(config.xMin, config.xMax, config.zMin, config.zMax).getRandomPoint(player.getWorld());
-				player.teleport(player.getWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
+				blockPos = new RandomPoint(config.xMin, config.xMax, config.zMin, config.zMax).getRandomPoint(player.getServerWorld());
+				player.teleport(player.getServerWorld(),blockPos.getX(),blockPos.getY(),blockPos.getZ(),0,0);
 				player.setSpawnPoint(player.getWorld().getRegistryKey(),blockPos,0,true,false);				serverState.players.add(player.getUuid());
 				serverState.markDirty();
 			}
